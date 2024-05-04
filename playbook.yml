@@ -1,0 +1,25 @@
+---
+- name: create user and group puzer
+  hosts: 176.123.164.183
+  become: yes
+  gather_facts: false
+
+  tasks:
+
+  - name: create group
+    ansible.builtin.group:
+     name: puzer_group
+    
+  - name: create user
+    ansible.builtin.user:
+     name: user_puzer
+      group: puzer_group
+
+  - name: copy file
+    copy:
+      src: test_file.txt
+      dest: /home/user_puzer
+      owner: user_puzer
+      group: puzer_group
+      mode: 755
+ 
