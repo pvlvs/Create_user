@@ -1,14 +1,8 @@
 ---
-- name: create user and group puzer
-  hosts: 176.123.164.183
-  become: yes
-  gather_facts: false
-
-  tasks:
-
   - name: create group
     ansible.builtin.group:
      name: puzer_group
+     state: present
     
   - name: create user
     ansible.builtin.user:

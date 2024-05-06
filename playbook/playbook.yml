@@ -1,0 +1,7 @@
+---
+-name: create user and group
+hosts: host1_vm1
+become: yes
+gather_facts: false
+roles:
+  -create_user_and_group
